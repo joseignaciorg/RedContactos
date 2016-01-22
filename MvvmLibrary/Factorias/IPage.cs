@@ -4,6 +4,7 @@ namespace MvvmLibrary.Factorias
 {
     public interface IPage
     {
+
         INavigation Navigation { get; }
     }
 }
