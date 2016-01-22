@@ -7,7 +7,7 @@
     <Entry Text="{Binding Usuario.login}"></Entry>
     <Label Text="Password"></Label>
     <Entry Text="{Binding Usuario.password}"></Entry>
-    <Button Text="Enviar"></Button>
-    <Button Text="Nuevo"></Button>
+    <Button Text="Enviar" Command="{Binding CmdLogin}"></Button>
+    <Button Text="Nuevo" Command="{Binding CmdAlta}"></Button>
   </StackLayout>
 </ContentPage>
