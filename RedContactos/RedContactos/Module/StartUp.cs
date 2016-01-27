@@ -3,6 +3,7 @@ using MvvmLibrary.Factorias;
 using MvvmLibrary.ModuloBase;
 using RedContactos.View;
 using RedContactos.ViewModel;
+using RedContactos.ViewModel.Contactos;
 using Xamarin.Forms;
 
 namespace RedContactos.Module

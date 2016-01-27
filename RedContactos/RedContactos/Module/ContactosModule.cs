@@ -1,9 +1,11 @@
 ﻿using System;
 using Autofac;
+using MvvmLibrary.Factorias;
 using MvvmLibrary.ModuloBase;
 using RedContactos.Servicios;
 using RedContactos.View;
 using RedContactos.ViewModel;
+using RedContactos.ViewModel.Contactos;
 using Xamarin.Forms;
 
 namespace RedContactos.Module
@@ -27,6 +29,9 @@ namespace RedContactos.Module
                 //devuelvo la pagina actual o la maestra (le pregunto al objeto si es la pagina principal)
                 return navigation != null ? navigation.CurrentPage : page;
             });
+            builder.RegisterType<DialogService>().As<IDialogService>().SingleInstance();
+            builder.RegisterType<PageProxy>().As<IPage>().SingleInstance();
+
             builder.RegisterType<ServicioDatos>().As<IServicioMovil>().SingleInstance();
             builder.RegisterType<LoginView>().SingleInstance();
             builder.RegisterType<LoginViewModel>().SingleInstance();
