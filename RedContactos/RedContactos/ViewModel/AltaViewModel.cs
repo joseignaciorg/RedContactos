@@ -3,6 +3,7 @@ using System.Windows.Input;
 using ContactosModel.Model;
 using MvvmLibrary.Factorias;
 using RedContactos.Servicios;
+using RedContactos.Util;
 using RedContactos.ViewModel.Contactos;
 using Xamarin.Forms;
 
@@ -36,11 +37,20 @@ namespace RedContactos.ViewModel
                     var r = await _servicio.AddUsuario(Usuario);
                     if (r != null)
                     {
+                        Cadenas.Session["usuario"] = r;// guardo el usuario en el objeto de sesion
                         await _navigator.PushAsync<ContactosViewModel>(viewModel =>
                         {
-                            Titulo = "Tus contactos";
+                            viewModel.Titulo = "Tus contactos";
                         });
                     }
+                    else
+                    {
+                        await _Page.MostrarAlerta("Error", "Error al registrar el usuario", "Aceptar");
+                    }
+                }
+                else
+                {
+                    await _Page.MostrarAlerta("Error", "Usuario ya registrado", "Aceptar");
                 }
 
             }

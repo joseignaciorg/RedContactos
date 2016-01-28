@@ -22,10 +22,11 @@ namespace RedContactos.ViewModel.Mensajes
 
             set
             {
-                if(value!=null)
+                SetProperty(ref _mensajeSeleccionado, value);
+                if (value!=null)
                     VerDetalleMensaje();
 
-                SetProperty(ref _mensajeSeleccionado,value);
+                
             }
         }
 

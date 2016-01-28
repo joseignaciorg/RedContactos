@@ -44,11 +44,11 @@ namespace RedContactos.ViewModel.Contactos
                 var r=await _servicio.AddMensaje(Mensaje);
                 if (r != null)
                 {
-                    //TODO: Meter el dialogo
+                    await _Page.MostrarAlerta("Exito", "Mensaje enviado", "Aceptar");
                 }
                 else
                 {
-                
+                    await _Page.MostrarAlerta("Error", "No se pudo enviar", "Aceptar");
                 }
             }
             finally

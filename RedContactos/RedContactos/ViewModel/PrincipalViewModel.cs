@@ -10,12 +10,12 @@ using Xamarin.Forms;
 
 namespace RedContactos.ViewModel
 {
-    public class PincipalViewModel:GeneralViewModel
+    public class PrincipalViewModel:GeneralViewModel
     {
         public ICommand CmdContactos { get; set; }
         public ICommand CmdMensajes { get; set; }
 
-        public PincipalViewModel(INavigator navigator, IServicioMovil servicio, IPage page) : base(navigator, servicio, page)
+        public PrincipalViewModel(INavigator navigator, IServicioMovil servicio, IPage page) : base(navigator, servicio, page)
         {
             CmdContactos=new Command(RunContactos);
             CmdMensajes=new Command(RunMensajes);

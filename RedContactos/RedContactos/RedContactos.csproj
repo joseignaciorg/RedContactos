@@ -50,15 +50,30 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\Mensajes\DetalleMensajeViewModel.cs" />
     <Compile Include="ViewModel\Mensajes\MisMensajesViewModel.cs" />
-    <Compile Include="ViewModel\PincipalViewModel.cs" />
+    <Compile Include="ViewModel\PrincipalViewModel.cs" />
     <Compile Include="View\AltaView.xaml.cs">
       <DependentUpon>AltaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ContactosView.xaml.cs">
+    <Compile Include="View\Contactos\AddContactoView.xaml.cs">
+      <DependentUpon>AddContactoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Contactos\ContactosView.xaml.cs">
       <DependentUpon>ContactosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Contactos\EnviarMensajeView.xaml.cs">
+      <DependentUpon>EnviarMensajeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mensajes\DetalleMensajeView.xaml.cs">
+      <DependentUpon>DetalleMensajeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mensajes\MisMensajesView.xaml.cs">
+      <DependentUpon>MisMensajesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrincipalView.xaml.cs">
+      <DependentUpon>PrincipalView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -126,12 +141,41 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\ContactosView.xaml">
+    <EmbeddedResource Include="View\PrincipalView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="View\Mensajes\MisMensajesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Mensajes\DetalleMensajeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Contactos\ContactosView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Contactos\EnviarMensajeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Contactos\AddContactoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

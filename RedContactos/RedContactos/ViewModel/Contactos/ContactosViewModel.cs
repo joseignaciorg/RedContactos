@@ -30,11 +30,11 @@ namespace RedContactos.ViewModel.Contactos
             get { return _contactoSeleccionado; }
             set
             {
+                SetProperty(ref _contactoSeleccionado, value);
                 if (value != null)
                 {
                     RunAddMensaje();
                 }
-                SetProperty(ref _contactoSeleccionado, value);
             }
         }
 
@@ -47,7 +47,7 @@ namespace RedContactos.ViewModel.Contactos
 
         private async void RunNuevoContacto()
         {
-            await _navigator.PushAsync<AddContactoViewModel>(viewModel =>
+           await _navigator.PushAsync<AddContactoViewModel>(viewModel =>
             {
                 viewModel.Amigos = Amigos;
                 viewModel.NoAmigos = NoAmigos;

@@ -3,6 +3,7 @@ using System.Windows.Input;
 using ContactosModel.Model;
 using MvvmLibrary.Factorias;
 using RedContactos.Servicios;
+using RedContactos.Util;
 using RedContactos.ViewModel.Contactos;
 using Xamarin.Forms;
 
@@ -35,8 +36,9 @@ namespace RedContactos.ViewModel
                 var us=await _servicio.ValidarUsuario(Usuario);
                 if (us != null)
                 {
+                    Cadenas.Session["usuario"] = us;// guardo en el objeto session el usuario que se ha logado
                     //mirar!!!!!!!
-                    await _navigator.PushAsync<ContactosViewModel>(viewModel =>
+                    await _navigator.PushAsync<PrincipalViewModel>(viewModel =>
                     {
                         Titulo = "Tus contactos";
 
@@ -44,7 +46,7 @@ namespace RedContactos.ViewModel
                 }
                 else
                 {
-                    //TODo:Informar
+                    await _Page.MostrarAlerta("Error", "Error en el login", "Aceptar");
                 }
             }
             finally
