@@ -18,8 +18,8 @@
   <ActivityIndicator IsVisible="{Binding IsBusy,Mode=TwoWay}"
                      IsRunning="{Binding IsBusy,Mode=TwoWay}"
                      VerticalOptions="CenterAndExpand"
-                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,Property=Height,Factor=0.30}"
-                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,Property=Height,Factor=0.30}"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.30}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.30}"
                      />
   </RelativeLayout>
 </ContentPage>
