@@ -8,7 +8,6 @@ namespace RedContactos.ViewModel.Mensajes
     public class MisMensajesViewModel:GeneralViewModel//Aqui mantendre todos mis mensajes mediante una colección
     {
         private ObservableCollection<MensajeModel> _mensajes;
-
         public ObservableCollection<MensajeModel> Mensajes
         {
             get {return _mensajes;}
@@ -16,6 +15,7 @@ namespace RedContactos.ViewModel.Mensajes
             set {SetProperty(ref _mensajes,value);}
         }
 
+        private MensajeModel _mensajeSeleccionado; //con esto manejo el mensaje que ha tocado el usuario para que yo se lo  muestre
         public MensajeModel MensajeSeleccionado
         {
             get {return _mensajeSeleccionado;}
@@ -24,13 +24,11 @@ namespace RedContactos.ViewModel.Mensajes
             {
                 SetProperty(ref _mensajeSeleccionado, value);
                 if (value!=null)
-                    VerDetalleMensaje();
-
-                
+                    VerDetalleMensaje(); 
             }
         }
 
-        private MensajeModel _mensajeSeleccionado; //con esto manejo el mensaje que ha tocado el usuario para que yo se lo  muestre
+        
          
         public MisMensajesViewModel(INavigator navigator, IServicioMovil servicio, IPage page) : base(navigator, servicio, page)
         {

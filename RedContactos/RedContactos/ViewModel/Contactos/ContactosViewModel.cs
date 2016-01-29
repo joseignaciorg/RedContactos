@@ -61,7 +61,7 @@ namespace RedContactos.ViewModel.Contactos
                 viewModel.Contacto = ContactoSeleccionado;
                 viewModel.Mensaje = new MensajeModel();
             });
-
+            ContactoSeleccionado = null;
         }
     }
 }
