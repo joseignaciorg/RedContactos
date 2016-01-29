@@ -8,10 +8,10 @@
       <DataTemplate>
         <ViewCell>
           <ViewCell.ContextActions>
-            <MenuItem Text="Añadir" BindingContext="{Binding}" Command="{Binding CmdAdd}" CommandParameter="{Binding idDestino}"/>
+            <MenuItem Text="Añadir" BindingContext="{Binding}" Command="{Binding CmdAdd}"/>
           </ViewCell.ContextActions>
           <StackLayout>
-          <Label Text="{Binding nombreCompleto}"></Label>
+          <Label Text="{Binding ContactoModel.nombreCompleto}"></Label>
           </StackLayout>
         </ViewCell>
       </DataTemplate>

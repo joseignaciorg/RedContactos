@@ -7,8 +7,8 @@ namespace RedContactos.ViewModel
     public class GeneralViewModel:ViewModelBase
     {
         protected INavigator _navigator;
-        protected IServicioMovil _servicio;
-        protected IPage _Page;
+        public IServicioMovil _servicio;
+        public IPage _Page;
 
         public GeneralViewModel(INavigator navigator, IServicioMovil servicio, IPage page)
         {

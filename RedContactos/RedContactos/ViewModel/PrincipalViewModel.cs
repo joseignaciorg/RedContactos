@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Autofac;
 using ContactosModel.Model;
 using MvvmLibrary.Factorias;
+using RedContactos.Models;
 using RedContactos.Servicios;
 using RedContactos.Util;
 using RedContactos.ViewModel.Contactos;
@@ -14,10 +16,12 @@ namespace RedContactos.ViewModel
     {
         public ICommand CmdContactos { get; set; }
         public ICommand CmdMensajes { get; set; }
+        public IComponentContext Context { get; set; }
 
-        public PrincipalViewModel(INavigator navigator, IServicioMovil servicio, IPage page) : base(navigator, servicio, page)
+        public PrincipalViewModel(INavigator navigator, IServicioMovil servicio, IPage page, IComponentContext ctx) : base(navigator, servicio, page)
         {
-            CmdContactos=new Command(RunContactos);
+            Context = ctx;
+            CmdContactos =new Command(RunContactos);
             CmdMensajes=new Command(RunMensajes);
         }
 
@@ -39,10 +43,19 @@ namespace RedContactos.ViewModel
             var yo = Cadenas.Session["usuario"] as UsuarioModel;
             var amigos = await _servicio.GetContactos(true,yo.id);
             var noamigos = await _servicio.GetContactos(false, yo.id);
+            var oc=new ObservableCollection<NoAmigosModel>();
+            foreach (var contactoModel in noamigos)
+            {
+                oc.Add(new NoAmigosModel()
+                {
+                    ComponentContext = Context,
+                    ContactoModel= contactoModel
+                });
+            }
             await _navigator.PushAsync<ContactosViewModel>(viewmodel =>
             {
                 viewmodel.Amigos = new ObservableCollection<ContactoModel>(amigos);
-                viewmodel.NoAmigos=new ObservableCollection<ContactoModel>(noamigos);
+                viewmodel.NoAmigos = oc;
 
             });
         }
