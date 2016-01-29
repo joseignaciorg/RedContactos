@@ -33,10 +33,10 @@ namespace RedContactos.ViewModel
             try
             {
                 IsBusy = true;
-                var us=await _servicio.ValidarUsuario(Usuario);
+                var us = await _servicio.ValidarUsuario(Usuario);
                 if (us != null)
                 {
-                    Cadenas.Session["usuario"] = us;// guardo en el objeto session el usuario que se ha logado
+                    Cadenas.Session["usuario"] = us; // guardo en el objeto session el usuario que se ha logado
                     //mirar!!!!!!!
                     await _navigator.PushAsync<PrincipalViewModel>(viewModel =>
                     {
@@ -44,10 +44,10 @@ namespace RedContactos.ViewModel
 
                     });
                 }
-                else
-                {
-                    await _Page.MostrarAlerta("Error", "Error en el login", "Aceptar");
-                }
+            }
+            catch (Exception e)
+            {
+                await _Page.MostrarAlerta("Error", "Error en el login", "Aceptar");
             }
             finally
             {
@@ -59,7 +59,7 @@ namespace RedContactos.ViewModel
         {
             await _navigator.PushAsync<AltaViewModel>(viewModel =>
             {
-                Titulo = "Nuevo usuario"; 
+                viewModel.Titulo = "Nuevo usuario"; 
                 
             });
         }

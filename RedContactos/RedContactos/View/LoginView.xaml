@@ -3,12 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RedContactos.View.LoginView"
              Title="{Binding Titulo}">
-  <StackLayout>
-    <Label Text="Login"></Label>
-    <Entry Text="{Binding Usuario.login}"></Entry>
-    <Label Text="Password"></Label>
-    <Entry Text="{Binding Usuario.password}"></Entry>
-    <Button Text="Logear" Command="{Binding CmdLogin}"></Button>
-    <Button Text="Alta Usuario" Command="{Binding CmdAlta}"></Button>
+  <RelativeLayout>
+  <StackLayout Opacity="{Binding Opacity,Mode=TwoWay}"
+               IsEnabled="{Binding Enabled,Mode=TwoWay}"
+               VerticalOptions="FillAndExpand"
+               >
+    <Label Text="Login"/>
+    <Entry Text="{Binding Usuario.login}"/>
+    <Label Text="Password"/>
+    <Entry Text="{Binding Usuario.password}"/>
+    <Button Text="Logear" Command="{Binding CmdLogin}"/>
+    <Button Text="Alta Usuario" Command="{Binding CmdAlta}"/>
   </StackLayout>
+  <ActivityIndicator IsVisible="{Binding IsBusy,Mode=TwoWay}"
+                     IsRunning="{Binding IsBusy,Mode=TwoWay}"
+                     VerticalOptions="CenterAndExpand"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,Property=Height,Factor=0.30}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,Property=Height,Factor=0.30}"
+                     />
+  </RelativeLayout>
 </ContentPage>
