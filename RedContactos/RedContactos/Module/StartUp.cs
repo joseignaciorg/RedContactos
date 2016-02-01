@@ -58,7 +58,7 @@ namespace RedContactos.Module
             {
                 var data=JsonConvert.DeserializeObject<UsuarioModel>(txt);//json con datos de usuario deserializados
                 Cadenas.Session["usuario"] = data;//los guardo en la sesión
-                var main = viewFactory.Resolve<LoginViewModel>();
+                var main = viewFactory.Resolve<PrincipalViewModel>();
                 var np = new NavigationPage(main);
                 _application.MainPage = np;
             }
