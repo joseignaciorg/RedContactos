@@ -4,6 +4,7 @@ using ContactosModel.Model;
 using MvvmLibrary.Factorias;
 using RedContactos.Models;
 using RedContactos.Servicios;
+using RedContactos.View.Contactos;
 using Xamarin.Forms;
 
 namespace RedContactos.ViewModel.Contactos
@@ -44,11 +45,34 @@ namespace RedContactos.ViewModel.Contactos
         public ContactosViewModel(INavigator navigator, IServicioMovil servicio, IPage page) : base(navigator, servicio, page)
         {
             CmdNuevo = new Command(RunNuevoContacto);
+            
+            //Sistema de mensajeria
+            //Me estoy subscribiendo a los mensajes llamados hola con el .subscribe
+            //<string>me estoy subscribiendo a mensajes de tipo string (tb le podria pasar un viewmodel)
+            //this quien se subscribe a los mensajes(el objeto que se esta subscribiendo)
+            //hola es le nombre del mensaje a enviar
+            MessagingCenter.Subscribe<string>(this,"Hola", (sender) =>
+            {
+                var a = "";
+            });
+
+            
+
+            //aqui el que envie un mensaje va a ser de tipo contactomodel
+            MessagingCenter.Subscribe<ContactoModel>(this,"AddContacto", (sender) =>
+            {
+                Amigos.Add(sender);
+            });
+
+            //MessagingCenter.Unsubscribe<string>(this,"Hola");quito la subscripción
         }
 
-       
+
         private async void RunNuevoContacto()
-        {
+        {    
+            //mensaje que se quiere enviar y hola es el nombre del mensaje.
+            MessagingCenter.Send("Hola ¿como estas?","Hola");//envio el mensaje hola
+
             await _navigator.PushAsync<AddContactoViewModel>(viewModel =>
              {
                  viewModel.Amigos = Amigos;
