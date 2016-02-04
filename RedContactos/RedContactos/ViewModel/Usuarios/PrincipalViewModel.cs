@@ -10,7 +10,7 @@ using RedContactos.ViewModel.Contactos;
 using RedContactos.ViewModel.Mensajes;
 using Xamarin.Forms;
 
-namespace RedContactos.ViewModel
+namespace RedContactos.ViewModel.Usuarios
 {
     public class PrincipalViewModel:GeneralViewModel
     {

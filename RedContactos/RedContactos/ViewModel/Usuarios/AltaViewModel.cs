@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using ContactosModel.Model;
 using MvvmLibrary.Factorias;
 using Newtonsoft.Json;
@@ -8,7 +7,7 @@ using RedContactos.Util;
 using RedContactos.ViewModel.Contactos;
 using Xamarin.Forms;
 
-namespace RedContactos.ViewModel
+namespace RedContactos.ViewModel.Usuarios
 {
     public class AltaViewModel:GeneralViewModel
     {

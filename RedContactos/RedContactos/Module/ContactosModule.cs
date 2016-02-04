@@ -9,6 +9,7 @@ using RedContactos.View.Mensajes;
 using RedContactos.ViewModel;
 using RedContactos.ViewModel.Contactos;
 using RedContactos.ViewModel.Mensajes;
+using RedContactos.ViewModel.Usuarios;
 using Xamarin.Forms;
 
 namespace RedContactos.Module

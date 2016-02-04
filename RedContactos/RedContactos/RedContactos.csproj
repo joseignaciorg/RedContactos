@@ -45,15 +45,15 @@
     <Compile Include="Servicios\IServicioMovil.cs" />
     <Compile Include="Servicios\ServicioDatos.cs" />
     <Compile Include="Util\Cadenas.cs" />
-    <Compile Include="ViewModel\AltaViewModel.cs" />
+    <Compile Include="ViewModel\Usuarios\AltaViewModel.cs" />
     <Compile Include="ViewModel\Contactos\AddContactoViewModel.cs" />
     <Compile Include="ViewModel\Contactos\ContactosViewModel.cs" />
     <Compile Include="ViewModel\Contactos\EnviarMensajeViewModel.cs" />
     <Compile Include="ViewModel\GeneralViewModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\Usuarios\LoginViewModel.cs" />
     <Compile Include="ViewModel\Mensajes\DetalleMensajeViewModel.cs" />
     <Compile Include="ViewModel\Mensajes\MisMensajesViewModel.cs" />
-    <Compile Include="ViewModel\PrincipalViewModel.cs" />
+    <Compile Include="ViewModel\Usuarios\PrincipalViewModel.cs" />
     <Compile Include="View\AltaView.xaml.cs">
       <DependentUpon>AltaView.xaml</DependentUpon>
     </Compile>
@@ -179,9 +179,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\Usuarios\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

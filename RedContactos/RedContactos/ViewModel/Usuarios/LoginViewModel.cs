@@ -5,10 +5,9 @@ using MvvmLibrary.Factorias;
 using Newtonsoft.Json;
 using RedContactos.Servicios;
 using RedContactos.Util;
-using RedContactos.ViewModel.Contactos;
 using Xamarin.Forms;
 
-namespace RedContactos.ViewModel
+namespace RedContactos.ViewModel.Usuarios
 {
     public class LoginViewModel:GeneralViewModel
     {
